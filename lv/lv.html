@@ -34,6 +34,24 @@
            transform-style: preserve-3d;
            animation: spin 15s infinite linear;
           }      
+
+          #music{
+              position: fixed;
+                width: 10%; height: auto; right: 3%; top: 11px;
+              border-radius: 50%;
+              background: transparent;
+          }
+          .run{
+            animation: rotate1 3s linear infinite;
+          }
+@keyframes rotate1{
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}
     #display{
         width:300px;
     color:white;
@@ -144,6 +162,16 @@
     #time.shows{
         animation: shows 1.2s ease-out 1 forwards;
     }
+ #time span{
+     font-size: 18px;
+ }
+ #time span>span{
+ color: #eebabc;
+ display: inline-block;
+ width: 40px;
+     font-size: 22px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+ }
     @keyframes shows{
         from{
             opacity: 0;
@@ -276,22 +304,24 @@
     <img width="50" height="50" src="img/1.jpg" />
 </div>        
     <div class="img">
-    <img width="50" height="50" src="img/1.jpg" />
+    <img width="50" height="50" src="img/2.jpg" />
+</div>        
+    <div class="img">
+    <img width="50" height="50" src="img/2.jpg" />
 </div>        
     <div class="img">
     <img width="50" height="50" src="img/1.jpg" />
 </div>        
     <div class="img">
-    <img width="50" height="50" src="img/1.jpg" />
-</div>        
-    <div class="img">
-    <img width="50" height="50" src="img/1.jpg" />
+    <img width="50" height="50" src="img/2.jpg" />
 </div>      
 </div>    
 </div> 
 <div id="time">
     纪念我们相识的第<br><span ></span>
-</div>       
+</div>    
+<!-- <div ></div>    -->
+<img src="img/music.jpg" class="run" id="music">
     <script>
         var startTime = "Sat Oct 06 2018 14:30:00 GMT+0800 (中国标准时间)"
         function preload(images,complete){
@@ -305,7 +335,34 @@
       _img.src = "img/"+images[i];
   }
 }
-preload(["1.jpg","bg.jpg"],function(){
+
+(function () {
+    var mm = document.createElement("AUDIO");
+ mm.setAttribute("autoplay",true);
+ mm.setAttribute("loop",true);
+    mm.setAttribute("src","media/bg.mp3");
+    console.log(mm)
+    // mm.autoplay = true;
+//  mm.src = "media/bg.mp3";
+    /* mm.addEventListener("canplay",function () {
+        
+    })  */
+//  mm.play();
+ document.addEventListener("WeixinJSBridgeReady", function () { mm.play(); }, false);
+ document.addEventListener('YixinJSBridgeReady',function() { mm.play(); }, false);
+    var btn = document.getElementById("music")
+    btn.ontouchstart = function () {
+        if(mm.paused){
+            mm.play()
+            this.className="run"
+        }else{
+    mm.pause()
+    this.className=""
+        }
+    }
+})();
+
+preload(["1.jpg","bg.jpg","music.jpg","2.jpg"],function(){
     var i =0;
                var str ="记得班门弄斧和你说的第一句英语 'I can't lv u more'! 没有想到我真的永远成为了:The boy who couldn't lv u more.";
 
@@ -335,7 +392,7 @@ function jsq(el,startT){
     },1000)
 }
 function tr(n){
-        return n<10?"0"+n:n;
+ return n<10? "<span>0"+n+ "</span>": "<span>"+n+ "</span>";
     }
 function jsst(startT){
     var _date = new Date(startT)
