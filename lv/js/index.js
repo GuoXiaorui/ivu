@@ -30,8 +30,13 @@ $(function(){
         on:{
             slideChangeTransitionEnd: function (swp) {
                 if (sliderImag.activeIndex == 1 && jilu !== sliderImag.activeIndex) {
-                    picsShow = new HdPic(".pic-app", hdre)
-                    picsShow.init();
+                    var pics = hdre.join(",").replace(/img\//gi,"").split(",");
+                    console.log(pics)
+                    preload(pics, function () {
+                        picsShow = new HdPic(".pic-app", hdre)
+                        picsShow.init();
+                    })
+                    
                 } else if (sliderImag.activeIndex !== 1) {
                     console.log("滑动结束：",picsShow)
                     if (picsShow){
@@ -94,6 +99,9 @@ function HdPic(sel,resouce){
     this.clear=function(){
         lock = true;
         elm.html("");
+        for (var i in timeout) {
+            clearTimeout(timeout[i]);
+        }
     }
     function autoPlay(){
         if(lock)return;

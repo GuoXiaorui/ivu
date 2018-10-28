@@ -37,31 +37,35 @@
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
-    z-index: 0;
 }
-.pic-app div>img{
-    width: 100%;
-    height: auto;
-    border: .15rem solid #fff;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
+
 .pic-app div.init{
     transition: all .7s ease-out;
 }
 .pic-app div.show{
-    left: 5% !important;
-    top: 5%!important;
-    width: 90% !important;
-    height: 90% !important;
+    left: 0% !important;
+    top: 0%!important;
+    width: 100% !important;
+    height: 100% !important;
     margin-left: 0 !important;
     margin-top: 0 !important;
     transform: rotate(0) !important;
     transition: all .7s ease-out;
 }
-
+.pic-app div>img {
+    position: absolute;
+    box-sizing: border-box;
+    width: 80%;
+    height: auto;
+    max-height: 100%;
+    border: .15rem solid #fff;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,0);
+}
+.pic-app div.show>img{
+    
+}
  .heart3d {
      position: absolute;
      top: 40%;
