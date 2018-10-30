@@ -67,8 +67,8 @@ function HdPic(sel,resouce){
         var yN = xN == sqrtN ? xN : xN + 1;
         var pW = W / xN;
         var pH =H/yN;
-        var ml = W - 2*pW;
-        var mt = H - pH*2;
+        var ml = W - 1.5*pW;
+        var mt = H - pH*1.5;
         var inHtml = ""
         for (const i in resouce) {
             var deg = Math.random()*60+10+"deg";
@@ -86,8 +86,8 @@ function HdPic(sel,resouce){
     function init(pW,pH,ml,mt,cb){
         var tol = 0;    
         elm.find("div").css({width:pW,height:pH,marginLeft:-pW/2,marginTop:-pH/2}).each(function(){
-            var l = Math.random() * ml + 0.5*pW
-            var t = Math.random()*mt + 0.5*pH
+            var l = Math.random() * ml + 0.8*pW
+            var t = Math.random()*mt + 0.8*pH
             $(this).animate({left:l,top:t},600,function(){
                 tol++;
                 if(tol == resouce.length){
@@ -124,6 +124,13 @@ function HdPic(sel,resouce){
             }, 3500);
     }
     function events(){
+        var start = function(e){
+            var _touch = e.originalEvent.targetTouches[0];
+            var x= _touch.pageX;
+            var y= _touch.pageY;
+            console.log(x,y)
+        }
+        elm.find("div").on('touchstart',start)
         // return;
         elm.find("div").on("click",function(){
             for (var i in timeout) {
@@ -194,7 +201,7 @@ function HdPic(sel,resouce){
 
 preload(["1.jpg", "bg.jpg", "music.jpg", "2.jpg"], function () {
     var i = 0;
-    var str = "一句卖弄式的话 'I can't lv u more'! 却没有想到我真的永远成为了-The boy who couldn't lv u more. I love you now and forever!";
+    var str = "如似卖弄式的一句话 'I can't lv u more'! 却没有想到我真的永远成为了-The boy who couldn't lv u more. I love you now and forever!";
 
     function typing() {
         var mydiv = document.getElementById("display");
