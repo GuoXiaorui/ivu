@@ -124,13 +124,13 @@ function HdPic(sel,resouce){
             }, 3500);
     }
     function events(){
-        var start = function(e){
-            var _touch = e.originalEvent.targetTouches[0];
-            var x= _touch.pageX;
-            var y= _touch.pageY;
-            console.log(x,y)
-        }
-        elm.find("div").on('touchstart',start)
+        // var start = function(e){
+        //     var _touch = e.originalEvent.targetTouches[0];
+        //     var x= _touch.pageX;
+        //     var y= _touch.pageY;
+        //     console.log(x,y)
+        // }
+        // elm.find("div").on('touchstart',start)
         // return;
         elm.find("div").on("click",function(){
             for (var i in timeout) {
