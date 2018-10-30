@@ -86,8 +86,8 @@ function HdPic(sel,resouce){
     function init(pW,pH,ml,mt,cb){
         var tol = 0;    
         elm.find("div").css({width:pW,height:pH,marginLeft:-pW/2,marginTop:-pH/2}).each(function(){
-            var l = Math.random() * ml + 1.5*pW
-            var t = Math.random()*mt +1.5*pH
+            var l = Math.random() * ml + 0.5*pW
+            var t = Math.random()*mt + 0.5*pH
             $(this).animate({left:l,top:t},600,function(){
                 tol++;
                 if(tol == resouce.length){
@@ -194,7 +194,7 @@ function HdPic(sel,resouce){
 
 preload(["1.jpg", "bg.jpg", "music.jpg", "2.jpg"], function () {
     var i = 0;
-    var str = "记得开玩笑地和你说的第一句英语 'I can't lv u more'! 没有想到我真的永远成为了:The boy who couldn't lv u more.";
+    var str = "一句卖弄式的话 'I can't lv u more'! 却没有想到我真的永远成为了-The boy who couldn't lv u more. I love you now and forever!";
 
     function typing() {
         var mydiv = document.getElementById("display");
