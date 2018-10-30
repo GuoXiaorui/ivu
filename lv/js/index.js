@@ -67,8 +67,8 @@ function HdPic(sel,resouce){
         var yN = xN == sqrtN ? xN : xN + 1;
         var pW = W / xN;
         var pH =H/yN;
-        var ml = W - pW;
-        var mt = H - pH;
+        var ml = W - 2*pW;
+        var mt = H - pH*2;
         var inHtml = ""
         for (const i in resouce) {
             var deg = Math.random()*60+10+"deg";
@@ -86,8 +86,8 @@ function HdPic(sel,resouce){
     function init(pW,pH,ml,mt,cb){
         var tol = 0;    
         elm.find("div").css({width:pW,height:pH,marginLeft:-pW/2,marginTop:-pH/2}).each(function(){
-            var l = Math.random() * ml + pW / 2
-            var t = Math.random()*mt +pH/2
+            var l = Math.random() * ml + pW
+            var t = Math.random()*mt +pH
             $(this).animate({left:l,top:t},600,function(){
                 tol++;
                 if(tol == resouce.length){
@@ -193,7 +193,7 @@ function HdPic(sel,resouce){
 
 preload(["1.jpg", "bg.jpg", "music.jpg", "2.jpg"], function () {
     var i = 0;
-    var str = "记得班门弄斧和你说的第一句英语 'I can't lv u more'! 没有想到我真的永远成为了:The boy who couldn't lv u more.";
+    var str = "记得开玩笑地和你说的第一句英语 'I can't lv u more'! 没有想到我真的永远成为了:The boy who couldn't lv u more.";
 
     function typing() {
         var mydiv = document.getElementById("display");
