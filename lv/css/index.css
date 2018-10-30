@@ -3,6 +3,10 @@
  * {
      margin: 0px;
      padding: 0px;
+     -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
  }
 
  /*去除默认外边距、内边距*/
