@@ -86,8 +86,8 @@ function HdPic(sel,resouce){
     function init(pW,pH,ml,mt,cb){
         var tol = 0;    
         elm.find("div").css({width:pW,height:pH,marginLeft:-pW/2,marginTop:-pH/2}).each(function(){
-            var l = Math.random() * ml + pW
-            var t = Math.random()*mt +pH
+            var l = Math.random() * ml + 1.5*pW
+            var t = Math.random()*mt +1.5*pH
             $(this).animate({left:l,top:t},600,function(){
                 tol++;
                 if(tol == resouce.length){
@@ -117,6 +117,7 @@ function HdPic(sel,resouce){
             timeout[1]=setTimeout(() => {
                 lis.removeClass("show").addClass("init")
                 timeout[2] =setTimeout(() => {
+                    
                     lock = false;
                     autoPlay()
                 }, 900);
