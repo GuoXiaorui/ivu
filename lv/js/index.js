@@ -19,8 +19,19 @@ function setAni(obj,elm,f){
         el.attr("class",cn)
     }
 }
-$(function(){
-    var hdre = ["img/p1.jpg", "img/p2.jpg", "img/p3.jpg", "img/p4.jpg", "img/p5.jpg" ]
+var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg'],
+    souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg'];
+preload(souces1, function () {
+    console.log($(".loadding").length)
+    $(".loadding").addClass("hide").siblings().removeClass("hide");
+    setTimeout(() => {
+        runP1();
+        runP2(souces2)
+    }, 20);
+    
+})
+
+function runP2(hdre) {
     var picsShow = null;
     var jilu = 0;
     var sliderImag = new Swiper(".app", {
@@ -30,13 +41,12 @@ $(function(){
         on:{
             slideChangeTransitionEnd: function (swp) {
                 if (sliderImag.activeIndex == 1 && jilu !== sliderImag.activeIndex) {
-                    var pics = hdre.join(",").replace(/img\//gi,"").split(",");
-                    console.log(pics)
-                    preload(pics, function () {
-                        picsShow = new HdPic(".pic-app", hdre)
-                        picsShow.init();
-                    })
-                    
+                     $(".loadding").removeClass('hide')
+                     preload(souces2, function () {
+                         $(".loadding").addClass('hide')
+                         picsShow = new HdPic(".pic-app", hdre)
+                         picsShow.init();
+                     })
                 } else if (sliderImag.activeIndex !== 1) {
                     console.log("滑动结束：",picsShow)
                     if (picsShow){
@@ -49,7 +59,7 @@ $(function(){
         }
     })
     console.log("zhixing",)
-});
+}
 
 function HdPic(sel,resouce){
     var elm = $(sel);
@@ -73,7 +83,7 @@ function HdPic(sel,resouce){
         for (const i in resouce) {
             var deg = Math.random()*60+10+"deg";
             deg = Math.random()>0.5?deg:"-"+deg;
-            inHtml+="<div style='transform:rotate("+deg+")'><img src='"+resouce[i]+"'/></div>"
+            inHtml+="<div style='transform:rotate("+deg+")'><img src='img/"+resouce[i]+"'/></div>"
         }
         elm.html(inHtml)
         init(pW, pH, ml, mt,function(){
@@ -177,7 +187,7 @@ function HdPic(sel,resouce){
     var mm = document.createElement("AUDIO");
     mm.setAttribute("autoplay", true);
     mm.setAttribute("loop", true);
-    mm.setAttribute("src", "media/bg.mp3");
+    mm.setAttribute("src", "http://ws.stream.kg.qq.com/shkge/f97b1878e9f9f6c70e88757c061da3bd345331e8?ftnrkey=bde66d15609af9dda1f91565ef537b4a03908fb940bd5ac55ce89b85f9a43c3d333ddcbc7000a2d3e8978aae94b85436433ff0ff6f79df8e8655f0e631d753db&vkey=0BAF8E721EBD0F030F3E21EAF023B3B859D4F4A6E59784362FD29DF6D81A4FDDD911FE55B0C14A011BDA8752EAFCCAE2160559C9F4C86D25E1D80675D6BA3F0B9FC4C35BEFB817E9FF866664075FB131CCC05623B15D0F42&fname=1021_781e74ee3d4b6fa8547e47ef83f972fc77819eae.0.m4a&fromtag=1506&sdtfrom=v1506");
     document.addEventListener("WeixinJSBridgeReady", function () { mm.play(); }, false);
     document.addEventListener('YixinJSBridgeReady', function () {
         mm.play();
@@ -199,7 +209,7 @@ function HdPic(sel,resouce){
     
 })();
 
-preload(["1.jpg", "bg.jpg", "music.jpg", "2.jpg"], function () {
+ function runP1() {
     var i = 0;
     var str = "如似卖弄式的一句话 'I can't lv u more'! 却没有想到我真的永远成为了-The boy who couldn't lv u more. I love you now and forever!";
 
@@ -222,7 +232,7 @@ preload(["1.jpg", "bg.jpg", "music.jpg", "2.jpg"], function () {
         }
      }
      typing()
-})
+}
 function jsq(el, startT) {
     setTimeout(function () {
         el.innerHTML = jsst(startT);
