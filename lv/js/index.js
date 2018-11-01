@@ -214,7 +214,7 @@ function HdPic(sel,resouce){
 
  function runP1() {
     var i = 0;
-    var str = "如似卖弄式的一句话 'I can't lv u more'! 却没有想到我真的永远成为了-The boy who couldn't lv u more. I love you now and forever!";
+    var str = "如似卖弄的一句话 'I can't lv u more'! 却没有想到我真的永远成为了-The boy who couldn't lv u more, now and forever!";
 
     function typing() {
         var mydiv = document.getElementById("display");
