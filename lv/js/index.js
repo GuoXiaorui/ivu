@@ -76,7 +76,7 @@ function HdPic(sel,resouce1){
     console.log(resouce)
     var W = elm.width()
     var H = elm.height()
-    var curIndex=0
+    var curIndex=Math.floor(Math.random()*resouce.length);
     var ooi=1;
     var lock = false;
     var timeout={}
@@ -91,7 +91,7 @@ function HdPic(sel,resouce1){
         ml = W - 1.5*pW;
         mt = H - pH*1.5;
         var inHtml = ""
-        for (const i in resouce) {
+        for (var i=0;i<resouce.length;i++) {
             var deg = Math.random()*60+10+"deg";
             deg = Math.random()>0.5?deg:"-"+deg;
             inHtml+="<div style='transform:rotate("+deg+")'><img src='img/"+resouce[i]+"'/></div>"
