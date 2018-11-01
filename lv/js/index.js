@@ -22,12 +22,11 @@ function setAni(obj,elm,f){
 var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg'],
     souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg'];
 preload(souces1, function () {
-    console.log($(".loadding").length)
-    $(".loadding").addClass("hide").siblings().removeClass("hide");
     setTimeout(() => {
+        $(".loadding").addClass("hide").siblings().removeClass("hide");
         runP1();
         runP2(souces2)
-    }, 20);
+    }, 200);
     
 })
 
@@ -187,7 +186,7 @@ function HdPic(sel,resouce){
     var mm = document.createElement("AUDIO");
     mm.setAttribute("autoplay", true);
     mm.setAttribute("loop", true);
-    mm.setAttribute("src", "http://ws.stream.kg.qq.com/shkge/f97b1878e9f9f6c70e88757c061da3bd345331e8?ftnrkey=bde66d15609af9dda1f91565ef537b4a03908fb940bd5ac55ce89b85f9a43c3d333ddcbc7000a2d3e8978aae94b85436433ff0ff6f79df8e8655f0e631d753db&vkey=0BAF8E721EBD0F030F3E21EAF023B3B859D4F4A6E59784362FD29DF6D81A4FDDD911FE55B0C14A011BDA8752EAFCCAE2160559C9F4C86D25E1D80675D6BA3F0B9FC4C35BEFB817E9FF866664075FB131CCC05623B15D0F42&fname=1021_781e74ee3d4b6fa8547e47ef83f972fc77819eae.0.m4a&fromtag=1506&sdtfrom=v1506");
+    mm.setAttribute("src", "http://zhangmenshiting.qianqian.com/data2/music/c92448ac0ebf19032b0cfe86ff6a2c55/594742598/594742598.mp3");
     document.addEventListener("WeixinJSBridgeReady", function () { mm.play(); }, false);
     document.addEventListener('YixinJSBridgeReady', function () {
         mm.play();
@@ -195,7 +194,9 @@ function HdPic(sel,resouce){
     document.addEventListener('DOMContentLoaded', function () {
         mm.play();
     }, false);
-    
+    mm.addEventListener("canplay",function () {
+        mm.play()
+    })
     var btn = document.getElementById("music")
     btn.ontouchstart = function () {
         if (mm.paused) {
