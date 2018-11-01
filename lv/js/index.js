@@ -19,11 +19,11 @@ function setAni(obj,elm,f){
         el.attr("class",cn)
     }
 }
-var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg'],
+var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg','bg1.jpg'],
     souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg'];
 preload(souces1, function () {
     console.log($(".loadding").length)
-    $(".loadding").addClass("hide")
+    $(".loadding").addClass("hide");
     setTimeout(() => {
         $(".loadding").siblings().removeClass("hide");
         runP1();
@@ -217,18 +217,19 @@ function HdPic(sel,resouce1){
     var mm = document.createElement("AUDIO");
     mm.setAttribute("autoplay", true);
     mm.setAttribute("loop", true);
-    mm.setAttribute("src", "https://m10.music.126.net/20181101152438/bdc651435afa47d487ef6e29a5d4ded3/ymusic/93cb/05a9/9bde/62440fb32fc7fb7cf90e5731ed600f3a.mp3");
-    document.addEventListener("WeixinJSBridgeReady", function () { if(mm.paused) mm.play(); }, false);
+    mm.setAttribute("src", "media/bg.mp3");
+
+    var btn = document.getElementById("music")
+    document.addEventListener("WeixinJSBridgeReady", function () { if(mm.paused) {btn.className = 'run';mm.play()}; }, false);
     document.addEventListener('YixinJSBridgeReady', function () {
-        if(mm.paused) mm.play();
+        if(mm.paused) {btn.className = 'run';mm.play()};
     }, false);
     document.addEventListener('DOMContentLoaded', function () {
-        if(mm.paused) mm.play();
+        if(mm.paused) {btn.className = 'run';mm.play()};
     }, false);
     mm.addEventListener("canplay",function () {
-        if(mm.paused) mm.play()
+        if(mm.paused) {btn.className = 'run';mm.play()}
     })
-    var btn = document.getElementById("music")
     btn.ontouchstart = function () {
         if (mm.paused) {
             mm.play()

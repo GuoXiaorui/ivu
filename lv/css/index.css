@@ -26,10 +26,14 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+    
 }
 
-.pps:nth-child(1) {
-    background: url(../img/bg.jpg) top center / 100% 100%;
+.swiper-slide{
+    background: url(../img/bg.jpg) top center / 100% 100% no-repeat;
+}
+.swiper-slide:nth-child(2) {
+    background: url(../img/bg1.jpg) top center / 100% 100% no-repeat;
 }
 
 .pps:nth-child(2) {
@@ -251,7 +255,7 @@ figure {
 
  #display {
      width: 300px;
-     color: white;
+     color: #484445;
      font-size: 22px;
      text-indent: 30px;
      position: absolute;
@@ -269,7 +273,7 @@ figure {
      position: absolute;
      width: 100px;
      height: 160px;
-     border: solid #eebabc;
+     border: solid #f7f4fb;
      border-width: 1px 1px 00;
      border-radius: 50% 50% 0 /40% 50% 0;
  }
@@ -489,7 +493,7 @@ figure {
      position: absolute;
      width: 100%;
      height: 30px;
-     color: aqua;
+     color: #878288;
      font-size: 16px;
      text-align: center;
      line-height: 30px;
@@ -507,7 +511,7 @@ figure {
  }
 
  #time span>span {
-     color: #eebabc;
+     color: #e06d6d;
      display: inline-block;
      width: 40px;
      font-size: 22px;
