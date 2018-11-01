@@ -188,16 +188,16 @@ function HdPic(sel,resouce){
     var mm = document.createElement("AUDIO");
     mm.setAttribute("autoplay", true);
     mm.setAttribute("loop", true);
-    mm.setAttribute("src", "http://zhangmenshiting.qianqian.com/data2/music/c92448ac0ebf19032b0cfe86ff6a2c55/594742598/594742598.mp3");
-    document.addEventListener("WeixinJSBridgeReady", function () { mm.play(); }, false);
+    mm.setAttribute("src", "http://zhangmenshiting.qianqian.com/data2/music/c92448ac0ebf19032b0cfe86ff6a2c55/594742598/594742598.mp3?xcode=14a582ee54787d857ddf74b1a6ef6955");
+    document.addEventListener("WeixinJSBridgeReady", function () { if(mm.paused) mm.play(); }, false);
     document.addEventListener('YixinJSBridgeReady', function () {
-        mm.play();
+        if(mm.paused) mm.play();
     }, false);
     document.addEventListener('DOMContentLoaded', function () {
-        mm.play();
+        if(mm.paused) mm.play();
     }, false);
     mm.addEventListener("canplay",function () {
-        mm.play()
+        if(mm.paused) mm.play()
     })
     var btn = document.getElementById("music")
     btn.ontouchstart = function () {
