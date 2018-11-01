@@ -22,6 +22,8 @@ function setAni(obj,elm,f){
 var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg'],
     souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg'];
 preload(souces1, function () {
+    console.log($(".loadding").length)
+    
     setTimeout(() => {
         $(".loadding").addClass("hide").siblings().removeClass("hide");
         runP1();
