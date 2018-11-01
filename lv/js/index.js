@@ -217,7 +217,7 @@ function HdPic(sel,resouce1){
     var mm = document.createElement("AUDIO");
     mm.setAttribute("autoplay", true);
     mm.setAttribute("loop", true);
-    mm.setAttribute("src", "http://ip.h5.rh03.sycdn.kuwo.cn/00666bc54c711c583a56268612d407cd/5bda9fe1/resource/a3/65/5/2178222355.aac");
+    mm.setAttribute("src", "https://m10.music.126.net/20181101152438/bdc651435afa47d487ef6e29a5d4ded3/ymusic/93cb/05a9/9bde/62440fb32fc7fb7cf90e5731ed600f3a.mp3");
     document.addEventListener("WeixinJSBridgeReady", function () { if(mm.paused) mm.play(); }, false);
     document.addEventListener('YixinJSBridgeReady', function () {
         if(mm.paused) mm.play();
