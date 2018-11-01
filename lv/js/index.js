@@ -134,6 +134,9 @@ function HdPic(sel,resouce1){
         curIndex ++;
         if(curIndex>=resouce.length)curIndex=0;
         var lis = elm.find("div").eq(curIndex).css({zIndex:ooi})
+        timeout[7] =setTimeout(function(){
+
+        
             lis.addClass("show").siblings().removeClass("show init");
             timeout[1]=setTimeout(() => {
                 var deg = Math.random()*60+10+"deg";
@@ -147,6 +150,7 @@ function HdPic(sel,resouce1){
                     autoPlay()
                 }, 900);
             }, 3500);
+        },10)
     }
     function events(){
         // var start = function(e){
@@ -165,6 +169,8 @@ function HdPic(sel,resouce1){
             var _lis = $(this).css({
                 zIndex: ooi
             });
+            timeout[6] = setTimeout(function () {
+                
             
             lock=true;
             if(_lis.is(".show")){
@@ -195,6 +201,7 @@ function HdPic(sel,resouce1){
                      autoPlay()
                  }, 900);
             }, 2500);
+        },10)
         })
     }
 }
