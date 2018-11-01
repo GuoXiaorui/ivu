@@ -150,7 +150,7 @@ function HdPic(sel,resouce1){
                     autoPlay()
                 }, 900);
             }, 3500);
-        },10)
+        },0)
     }
     function events(){
         // var start = function(e){
@@ -201,7 +201,7 @@ function HdPic(sel,resouce1){
                      autoPlay()
                  }, 900);
             }, 2500);
-        },10)
+        },0)
         })
     }
 }
@@ -217,7 +217,7 @@ function HdPic(sel,resouce1){
     var mm = document.createElement("AUDIO");
     mm.setAttribute("autoplay", true);
     mm.setAttribute("loop", true);
-    mm.setAttribute("src", "http://zhangmenshiting.qianqian.com/data2/music/c92448ac0ebf19032b0cfe86ff6a2c55/594742598/594742598.mp3?xcode=14a582ee54787d857ddf74b1a6ef6955");
+    mm.setAttribute("src", "http://ip.h5.rh03.sycdn.kuwo.cn/00666bc54c711c583a56268612d407cd/5bda9fe1/resource/a3/65/5/2178222355.aac");
     document.addEventListener("WeixinJSBridgeReady", function () { if(mm.paused) mm.play(); }, false);
     document.addEventListener('YixinJSBridgeReady', function () {
         if(mm.paused) mm.play();
