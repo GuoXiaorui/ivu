@@ -59,27 +59,37 @@ function runP2(hdre) {
             }
         }
     })
-    console.log("zhixing",)
 }
 
-function HdPic(sel,resouce){
+function HdPic(sel,resouce1){
     var elm = $(sel);
-    if(!elm.length || !resouce.length) return;
+    if(!elm.length || !resouce1.length) return;
+    var ss = JSON.parse(JSON.stringify(resouce1));
+    var resouce = []
+    for(var i=0;i<resouce1.length;i++){
+        var n = Math.floor(Math.random()*ss.length);
+        var pn = ss[n];
+        resouce.push(pn);
+        ss[n] = false;
+        ss = ss.filter(v=>v)
+    }
+    console.log(resouce)
     var W = elm.width()
     var H = elm.height()
     var curIndex=0
     var ooi=1;
     var lock = false;
     var timeout={}
+    var ml = 0,mt = 0,pW = 0,pH = 0;
     this.init= function () {
         elm.html("")
         var sqrtN = Math.sqrt(resouce.length)
         var xN = Math.floor(sqrtN);
         var yN = xN == sqrtN ? xN : xN + 1;
-        var pW = W / xN;
-        var pH =H/yN;
-        var ml = W - 1.5*pW;
-        var mt = H - pH*1.5;
+        pW = W / xN;
+        pH =H/yN;
+        ml = W - 1.5*pW;
+        mt = H - pH*1.5;
         var inHtml = ""
         for (const i in resouce) {
             var deg = Math.random()*60+10+"deg";
@@ -126,7 +136,11 @@ function HdPic(sel,resouce){
         var lis = elm.find("div").eq(curIndex).css({zIndex:ooi})
             lis.addClass("show").siblings().removeClass("show init");
             timeout[1]=setTimeout(() => {
-                lis.removeClass("show").addClass("init")
+                var deg = Math.random()*60+10+"deg";
+                deg = Math.random()>0.5?deg:"-"+deg;
+                var l = Math.random() * ml + 0.8*pW
+                var t = Math.random()*mt + 0.8*pH
+                lis.css({left:l,top:t,transform:"rotate("+deg+")"}).removeClass("show").addClass("init")
                 timeout[2] =setTimeout(() => {
                     
                     lock = false;
@@ -154,7 +168,11 @@ function HdPic(sel,resouce){
             
             lock=true;
             if(_lis.is(".show")){
-                _lis.removeClass("show").addClass("init");
+                var deg = Math.random()*60+10+"deg";
+                deg = Math.random()>0.5?deg:"-"+deg;
+                var l = Math.random() * ml + 0.8*pW
+                var t = Math.random()*mt + 0.8*pH
+                _lis.css({left:l,top:t,transform:"rotate("+deg+")"});_lis.removeClass("show").addClass("init");
                 timeout[3] =setTimeout(() => {
                     curIndex = _lis.index();
                     lock = false;
@@ -166,7 +184,11 @@ function HdPic(sel,resouce){
             _lis.addClass("show").siblings().removeClass("show init");
             curIndex = _lis.index();
             timeout[4] =setTimeout(() => {
-                 _lis.removeClass("show").addClass("init");
+                var deg = Math.random()*60+10+"deg";
+                deg = Math.random()>0.5?deg:"-"+deg;
+                var l = Math.random() * ml + 0.8*pW
+                var t = Math.random()*mt + 0.8*pH
+                _lis.css({left:l,top:t,transform:"rotate("+deg+")"});_lis.removeClass("show").addClass("init");
                  timeout[5] = setTimeout(() => {
                      curIndex = _lis.index();
                      lock = false;
