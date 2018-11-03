@@ -215,21 +215,12 @@ function HdPic(sel,resouce1){
     }
     $(".heart3d").append(str)
     var mm = document.createElement("AUDIO");
-    mm.setAttribute("autoplay", true);
+    mm.setAttribute("autoplay", false);
     mm.setAttribute("loop", true);
     mm.setAttribute("src", "media/bg.mp3");
 
     var btn = document.getElementById("music")
-    document.addEventListener("WeixinJSBridgeReady", function () { if(mm.paused) {btn.className = 'run';mm.play()}; }, false);
-    document.addEventListener('YixinJSBridgeReady', function () {
-        if(mm.paused) {btn.className = 'run';mm.play()};
-    }, false);
-    document.addEventListener('DOMContentLoaded', function () {
-        if(mm.paused) {btn.className = 'run';mm.play()};
-    }, false);
-    mm.addEventListener("canplay",function () {
-        if(mm.paused) {btn.className = 'run';mm.play()}
-    })
+    
     btn.ontouchstart = function () {
         if (mm.paused) {
             mm.play()
