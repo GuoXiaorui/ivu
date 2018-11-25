@@ -235,7 +235,7 @@ function HdPic(sel,resouce1){
 
  function runP1() {
     var i = 0;
-    var str = "如似卖弄的一句话 'I can't lv u more'! 却没有想到我真的永远成为了-The boy who couldn't lv u more, now and forever!";
+    var str = "即使我成为了-The boy who couldn't lv u more, now and forever!可我也不陪拥有你，就让时间永远停在这儿吧。对不起老婆，我真的很爱你，可是我怎么表达，你都体会不到。是我不好，对不起！";
 
     function typing() {
         var mydiv = document.getElementById("display");
@@ -268,7 +268,7 @@ function tr(n) {
 }
 function jsst(startT) {
     var _date = new Date(startT)
-    var dur = (new Date().getTime() - _date.getTime()) / 1000;
+    var dur = (new Date('2018-11-25 22:52:00').getTime() - _date.getTime()) / 1000;
 
     var d = Math.floor(dur / (24 * 60 * 60));
     var h = Math.floor((dur % (24 * 60 * 60)) / (60 * 60));
