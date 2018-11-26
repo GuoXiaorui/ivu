@@ -235,7 +235,7 @@ function HdPic(sel,resouce1){
 
  function runP1() {
     var i = 0;
-    var str = "如果我们走散了，我会永远在原地等你，我没有虚伪是真的需要时间，也是真的爱你。-The boy who couldn't lv u more, now and forever!";
+    var str = "什么也不想说了。-The boy who couldn't lv u more, now and forever!";
 
     function typing() {
         var mydiv = document.getElementById("display");
