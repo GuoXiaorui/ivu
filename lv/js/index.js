@@ -241,7 +241,7 @@ function HdPic(sel,resouce1){
 
  function runP1() {
     var i = 0;
-    var str = "云海中等待到的，是生命的任何角度都会有的你\r\n—The boy who couldn't lv u more, now and forever!";
+    var str = "云海中等待到的，是生命的任何角度都会有的你\n\r—The boy who couldn't lv u more, now and forever!";
 
     function typing() {
         var mydiv = document.getElementById("display");
