@@ -201,7 +201,7 @@ function HdPic(sel,resouce1){
                      autoPlay()
                  }, 900);
             }, 2500);
-        },0)
+        },10)
         })
     }
 }
@@ -235,7 +235,7 @@ function HdPic(sel,resouce1){
 
  function runP1() {
     var i = 0;
-    var str = "。-The boy who couldn't lv u more, now and forever!";
+    var str = "感谢云海中遇到的你，感谢生命的任何角度都会有你的味道-The boy who couldn't lv u more, now and forever!";
 
     function typing() {
         var mydiv = document.getElementById("display");
