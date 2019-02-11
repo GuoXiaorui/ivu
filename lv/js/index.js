@@ -214,34 +214,42 @@ function HdPic(sel,resouce1){
 
 
 
-(function () {
+$(function () {
     var str = ""
     for (let i = 1; i < 36; i++) {
         str +="<div class='rib"+i+"'></div>"
     }
     $(".heart3d").append(str)
     var mm = document.createElement("AUDIO");
-    mm.setAttribute("autoplay", false);
+    var mmlock = true
+    mm.setAttribute("autoplay", true);
     mm.setAttribute("loop", true);
+    mm.setAttribute("preload", true);
     // mm.setAttribute("src", "media/bg.mp3");
     mm.setAttribute("src", "media/faded.mp3");
 
     var btn = document.getElementById("music")
-    var mmlock = true
     mm.addEventListener('canplay',function(){
         mmlock = false
-    },false)
+        btn.className = "run"
+    },true)
+    mm.play()
+    document.addEventListener("WeixinJSBridgeReady", function () { 
+        mm.play() 
+    }, false);
     btn.ontouchstart = function () {
-        if (!mmlock){
+        if (mmlock) return;
+        console.log(mm.paused)
+        if (!mm.paused){
             mm.pause()
-            this.className = ""
+            this.style.animationPlayState = "paused"
         } else {
             mm.play()
-            !mmlock && (this.className = "run")
+            this.style.animationPlayState = "running"
         }
     }
     
-})();
+});
 
  function runP1() {
     var i = 0;
