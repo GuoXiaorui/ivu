@@ -292,7 +292,7 @@ function jsst(startT) {
     var h = Math.floor((dur % (24 * 60 * 60)) / (60 * 60));
     var m = Math.floor(((dur % (24 * 60 * 60)) % (60 * 60)) / 60);
     var s = Math.floor(((dur % (24 * 60 * 60)) % (60 * 60)) % 60);
-    return tr(d) + "天" + tr(h) + "小时" + tr(m) + "分钟" + tr(s) + "秒"
+    return tr(d) + "D" + tr(h) + "H" + tr(m) + "M" + tr(s) + "S"
 }   
 function resizeW(W){
     function resize() {
