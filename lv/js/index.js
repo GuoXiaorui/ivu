@@ -223,7 +223,8 @@ function HdPic(sel,resouce1){
     var mm = document.createElement("AUDIO");
     mm.setAttribute("autoplay", false);
     mm.setAttribute("loop", true);
-    mm.setAttribute("src", "media/bg.mp3");
+    // mm.setAttribute("src", "media/bg.mp3");
+    mm.setAttribute("src", "media/faded.mp3");
 
     var btn = document.getElementById("music")
     
