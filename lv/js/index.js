@@ -227,14 +227,17 @@ function HdPic(sel,resouce1){
     mm.setAttribute("src", "media/faded.mp3");
 
     var btn = document.getElementById("music")
-    
+    var mmlock = true
+    mm.addEventListener('timeupdate',function(){
+        mmlock = false
+    },false)
     btn.ontouchstart = function () {
-        if (mm.paused) {
-            mm.play()
-            this.className = "run"
-        } else {
+        if (!mmlock){
             mm.pause()
             this.className = ""
+        } else {
+            mm.play()
+            !mmlock && (this.className = "run")
         }
     }
     
