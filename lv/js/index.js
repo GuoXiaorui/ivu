@@ -229,7 +229,7 @@ $(function () {
     mm.setAttribute("src", "media/faded.mp3");
 
     var btn = document.getElementById("music")
-    mm.addEventListener('canplay',function(){
+    mm.addEventListener('canplaythrough',function(){
         mmlock = false
         btn.className = "run"
     },true)
@@ -292,7 +292,7 @@ function jsst(startT) {
     var h = Math.floor((dur % (24 * 60 * 60)) / (60 * 60));
     var m = Math.floor(((dur % (24 * 60 * 60)) % (60 * 60)) / 60);
     var s = Math.floor(((dur % (24 * 60 * 60)) % (60 * 60)) % 60);
-    return tr(d) + "D" + tr(h) + "H" + tr(m) + "M" + tr(s) + "S"
+    return tr(d) + "Day" + tr(h) + "H" + tr(m) + "M" + tr(s) + "S"
 }   
 function resizeW(W){
     function resize() {
