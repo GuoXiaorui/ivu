@@ -284,7 +284,6 @@ function jsst(startT) {
 }   
 function resizeW(W){
     function resize() {
-
         var ww = $(window).width(),
             wh = $(window).height();
         var _w = Math.min(ww, wh);
