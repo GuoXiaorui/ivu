@@ -228,7 +228,7 @@ function HdPic(sel,resouce1){
 
     var btn = document.getElementById("music")
     var mmlock = true
-    mm.addEventListener('timeupdate',function(){
+    mm.addEventListener('canplay',function(){
         mmlock = false
     },false)
     btn.ontouchstart = function () {
