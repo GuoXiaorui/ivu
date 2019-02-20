@@ -1,4 +1,12 @@
+__debug = true
+;(function(){
+    if (!__debug) return;
+    var ss = window.console.log
+    // 重写console.log
+    window.console.log = function(){}
+})()
 var startTime = "Sat Oct 06 2018 14:30:00 GMT+0800 (中国标准时间)"
+window.sliderImag  = null
 resizeW(750);
 function preload(images, complete) {
     var total = new Array();
@@ -41,7 +49,7 @@ preload(souces1, function () {
 function runP2(hdre) {
     var picsShow = null;
     var jilu = 0;
-    var sliderImag = new Swiper(".app", {
+    sliderImag = new Swiper(".app", {
         speed: 500,
         slidesPerView: 1,
         direction: "vertical",
@@ -253,7 +261,7 @@ $(function () {
 
  function runP1() {
     var i = 0;
-    var str = "命运,愿一切美好终能成为美好\n\r—The boy who couldn't lv u more, from then on";
+    var str = "酒醉人醒,愿一切美好终能成为美好\n\r—The boy who couldn't lv u more, from then on";
 
     function typing() {
         var mydiv = document.getElementById("display");
@@ -308,13 +316,15 @@ function resizeW(W){
             fontSize: (_w / W) * 625 + "%"
         });
         $("body").removeClass("landscape portrait").addClass(orientation);
-        $("body").css({
+        console.log(_w, _h, ww, wh)
+        $(".pps").css({
             width: _w,
             height: _h,
             marginLeft: ml,
             marginTop: mt,
             transform: "rotate(" + rotate + ")"
         });
+        sliderImag && sliderImag.updateSize()
     };
     resize();
     $(window).resize(resize);
