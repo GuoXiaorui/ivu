@@ -30,7 +30,7 @@ function setAni(obj,elm,f){
 var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg','bg1.jpg'],
     souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg', 'p7.jpg'];
 preload(souces1, function () {
-    return false
+    // return false
     console.log($(".loadding").length)
     $(".loadding").html(`<figure>
     <div class="dot white"></div>
@@ -262,7 +262,7 @@ $(function () {
 
  function runP1() {
     var i = 0;
-    var str = "酒醉人醒,愿一切美好终能成为美好\n\r—The boy who couldn't lv u more, from then on";
+    var str = "一辈子挺长的，要是走散了，打我电话好不：15110279257,愿一切美好终能成为美好\n\r—The boy who couldn't lv u more, from then on";
 
     function typing() {
         var mydiv = document.getElementById("display");
