@@ -5,7 +5,7 @@ __debug = true
     // 重写console.log
     window.console.log = function(){}
 })()
-var startTime = "2019-03-13 20:00:00"
+var startTime = "Thu Mar 13 2019 20:00:00 GMT+0800 (中国标准时间)"
 window.sliderImag  = null
 resizeW(750);
 function preload(images, complete) {
