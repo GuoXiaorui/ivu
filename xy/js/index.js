@@ -5,7 +5,7 @@ __debug = true
     // 重写console.log
     window.console.log = function(){}
 })()
-var startTime = "Sat Oct 06 2018 14:30:00 GMT+0800 (中国标准时间)"
+var startTime = "2019-03-13 20:00:00"
 window.sliderImag  = null
 resizeW(750);
 function preload(images, complete) {
@@ -27,8 +27,8 @@ function setAni(obj,elm,f){
         el.attr("class",cn)
     }
 }
-var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg','bg1.jpg'],
-    souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg', 'p7.jpg'];
+var souces1 = ['3.jpg',  'bg.jpg', 'music.jpg','bg1.jpg'],
+    souces2 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg'];
 preload(souces1, function () {
     // return false
     console.log($(".loadding").length)
@@ -235,7 +235,7 @@ $(function () {
     mm.setAttribute("loop", true);
     mm.setAttribute("preload", true);
     // mm.setAttribute("src", "media/bg.mp3");
-    mm.setAttribute("src", "media/faded.mp3");
+    mm.setAttribute("src", "../lv/media/bg.mp3");
 
     var btn = document.getElementById("music")
     mm.addEventListener('canplaythrough',function(){
@@ -262,7 +262,7 @@ $(function () {
 
  function runP1() {
     var i = 0;
-    var str = "一辈子挺长的，要是因为气话走散了，重新认识好吗,愿一切美好终能成为美好\n\r—The boy who couldn't lv u more, from then on";
+    var str = "也许永远不知道明天会遇到谁，但这一刻的相遇，值得我去留住。";
 
     function typing() {
         var mydiv = document.getElementById("display");

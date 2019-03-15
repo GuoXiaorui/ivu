@@ -964,7 +964,7 @@
         text-align: right;
         position: fixed;
         bottom: 2px;
-        right: 10px;
+        left: 10px;
         z-index: 99999999999;
         padding: 10px 20px;
         color: #fff;
@@ -982,6 +982,21 @@
     }
     </style>
     <script>
+        function getLocationSearch(key){
+            var search = location.search.trim()
+            if (!search || search == '?') return null;
+            var reg = /(\?|\&)[^\&|\#]/gi
+            var result = {}
+            search.replace(reg, function(str){
+                console.log(str)
+                var map = str.replace(/\?|\&/, '').split('=')
+                if(map.length !== 2) return '';
+                result[map[0]] = map[1]
+            })
+            if (key && result.hasOwnProperty(key)) return result[key]
+            return result
+        }
+        console.log(getLocationSearch)
         ;(function(){
             var loadFunStr = xrConfig[0].funStr
             //重载
