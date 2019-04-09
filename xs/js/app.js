@@ -1,7 +1,7 @@
 !function(){
     var xs = {
         '斗罗大陆':'./data/data.json',
-        '星辰变' : './xingchenbian/1434458_1435000.json'
+        '星辰变' : './data/xingchenbian/1434458_1435000.json'
     }
     var skip = [...document.querySelectorAll('.skip input')]
     var pre = [...document.querySelectorAll('.pre')]
