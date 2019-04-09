@@ -1,6 +1,7 @@
 !function(){
     var xs = {
-        '斗罗大陆':'./data/data.json'
+        '斗罗大陆':'./data/data.json',
+        '星辰变' : './xingchenbian/1434458_1435000.json'
     }
     var skip = [...document.querySelectorAll('.skip input')]
     var pre = [...document.querySelectorAll('.pre')]
@@ -8,7 +9,7 @@
     // name: n page: p
     var Search = getAppSearch()
     if (!Search.n || !Search.p) {
-        setSearch({n:'斗罗大陆',p:0})
+        setSearch({n:'星辰变',p:0})
     }
     var xsKey = decodeURI(Search.n)
     var _json = Search.d?`./data/${Search.d}.json`:xs[xsKey]
