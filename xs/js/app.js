@@ -78,6 +78,7 @@
         var t = document.getElementById('title')
         var c = document.getElementById('content')
         t.innerText = data.title
+        document.title = data.title
         c.innerHTML = data.html
         c.innerHTML = c.innerHTML.replace(new RegExp("&nbsp;&nbsp;&nbsp;&nbsp;","gi"),"")
         skip.forEach(v=>{v.value = parseInt(getAppSearch().p) +1})
