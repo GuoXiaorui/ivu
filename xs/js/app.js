@@ -13,7 +13,7 @@
     var pre = [...document.querySelectorAll('.pre')]
     var next = [...document.querySelectorAll('.next')]
     var open = [...document.querySelectorAll('.openmulu')]
-    var xsJson = []
+    var xsJson = window.xsJson || []
     
     // name: n page: p
     var Search = getAppSearch()
@@ -38,6 +38,12 @@
             render(xsJson[Search.p]);
             window.scrollTo(0,0)
                 mulu(0);
+                open.forEach(v=>{
+                    v.onclick = function(){
+                            mulu(1);
+                            v.isOpen = true
+                    }
+                })
                 return false;
         }
         var xsKey = decodeURI(Search.n)
@@ -63,7 +69,7 @@
                 }
                 open.forEach(v=>{
                     v.onclick = function(){
-                            mulu(1,data);
+                            mulu(1);
                             v.isOpen = true
                     }
                 })
@@ -145,18 +151,28 @@
             
         }
         if(!dom.innerHTML){
-
-            fetch(`${dataBaseUrl}mulu.json`).then((res)=>{
-                res.json().then(data=>{
-                    dom.innerHTML = createMulu(data);
-                    dom.querySelector('.close').onclick = function(){
-                        mulu(0);
-                    }
-                    setTimeout(()=>{
-                        dom.className = 'mulu show'
-                    },0)
+            if(window.xsJson) {
+                dom.innerHTML = createMulu(window.xsJson);
+                dom.querySelector('.close').onclick = function(){
+                    mulu(0);
+                }
+                setTimeout(()=>{
+                    dom.className = 'mulu show'
+                },0)
+            }else{
+                fetch(`${dataBaseUrl}mulu.json`).then((res)=>{
+                    res.json().then(data=>{
+                        dom.innerHTML = createMulu(data);
+                        dom.querySelector('.close').onclick = function(){
+                            mulu(0);
+                        }
+                        setTimeout(()=>{
+                            dom.className = 'mulu show'
+                        },0)
+                    })
                 })
-            })
+            }
+            
         }else{
             setTimeout(()=>{
                 dom.className = 'mulu show'
