@@ -45,6 +45,7 @@
         var s = getAppSearch();
         if(s.p&&xsJson.length){
             render(xsJson[s.p]);
+            window.scrollTo(0,0)
             mulu(0);
         }
     }
