@@ -11,7 +11,8 @@
     // name: n page: p
     var Search = getAppSearch()
     if (!Search.n || !Search.p) {
-        window.reload(setSearch({n:'星辰变',p:0}))
+        Search = {n:'星辰变',p:0}
+        window.reload(setSearch({n:'星辰变',p:0},true))
     }
     var xsKey = decodeURI(Search.n)
     var _json = Search.d?`./data/${Search.d}.json`:xs[xsKey]
