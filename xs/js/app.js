@@ -12,7 +12,7 @@
     var Search = getAppSearch()
     if (!Search.n || !Search.p) {
         Search = {n:'星辰变',p:0}
-        window.reload(setSearch({n:'星辰变',p:0},true))
+       setSearch(Search)
     }
     var xsKey = decodeURI(Search.n)
     var _json = Search.d?`./data/${Search.d}.json`:xs[xsKey]
