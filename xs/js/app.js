@@ -7,6 +7,7 @@
     var pre = [...document.querySelectorAll('.pre')]
     var next = [...document.querySelectorAll('.next')]
     var open = [...document.querySelectorAll('.openmulu')]
+    var xsJson = []
     // name: n page: p
     var Search = getAppSearch()
     if (!Search.n || !Search.p) {
@@ -18,6 +19,7 @@
         
         res.json().then(data=>{
             console.log(data);
+            xsJson = data
             var page = data[Search.p]
             if(page){
                 render(page)
@@ -38,6 +40,14 @@
        
     })
     
+    window.onhashchange = function(){
+        var s = getAppSearch();
+        if(s.p&&xsJson.length){
+            render(xsJson[s.p]);
+            mulu(0);
+        }
+    }
+
     function render(data){
         var t = document.getElementById('title')
         var c = document.getElementById('content')
@@ -49,11 +59,13 @@
 
     pre.forEach(v=>{
         v.onclick = function(){
+            var Search = getAppSearch()
             setSearch({p:parseInt(Search.p)-1})
         }
     })
     next.forEach(v=>{
         v.onclick = function(){
+            var Search = getAppSearch()
             setSearch({p:parseInt(Search.p)+1})
         }
     })
@@ -66,10 +78,10 @@
     
     function getAppSearch(){
         var r = {}
-        var s = location.search
-        if(!s || s.trim()=='?') return r;
+        var s = location.href.split("#")
+        if(s.length<2||!s[1]) return r;
 
-        s = s.substring(1).split('&')
+        s = s[1].split('&')
         s.forEach(v=>{
             var kv = v.split('=')
             if(kv.length == 2){
@@ -88,15 +100,14 @@
         for (var k in s) {
             r.push(`${k}=${s[k]}`)
         }
-        var link = `?${r.join('&')}`;
+        var link = `#${r.join('&')}`;
         if(flag) return link;
         location.href = link;
     }
     function mulu(o,data){
         var dom = document.querySelector('.mulu');
-        console.log(o)
         if(!o){
-            dom.className = 'mulu';
+            dom && (dom.className = 'mulu');
             console.log(000)
             return false;
         }
