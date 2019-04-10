@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, minimum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>xs preview</title>
 </head>
@@ -15,27 +15,30 @@
     }
     html,body{
         width: 100%;
-        background: #e6eb9c;
+        height: 100%;
+        background: #f5f8bf;
     }
     .app{
         width: 85%;
         max-width: 750px;
         margin: 0 auto;
-        padding-top: 80px;
+        padding-bottom: 80px;
+        padding-top: 30px;
     }
     .opts{
-        width: 60%;
+        width: 30px;
         display: flex;
-        height: 30px;
-        margin: 10px auto;
+        /* height: 30px; */
         position: fixed;
-        left: 20%;
-        top: 10px;
+        flex-direction:column;
+        right: 2px;
+        top:50%;
+        transform: translate(0,-50%);
     }
     .opts li{
         flex: 1;
         line-height: 30px;
-        margin: 0 5px;
+        margin: 5px 0;
         background:rgba(229, 222, 147, 0.8);
         border-radius: 8px;
         text-align: center;
@@ -51,10 +54,63 @@
         border: none;
         text-align: center;
     }
-
+    #content{
+        padding: 10px 0;
+        font-size: 16px;
+        line-height: 20px;
+    }
     #content .anti-transform,
     #content .to_nextpage{
         display: none!important;
+    }
+    .mulu{
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 30px 20px;
+        overflow: auto;
+        position: fixed;
+        left: -100%;
+        /* display: none; */
+        top:0;
+        transition: all .4s ease-in-out;
+        background: rgba(229, 222, 147, 1);
+    }
+    .mulu.show{
+        /* display: block; */
+        left: 0;
+        transition: all .4s ease-in-out;
+    }
+    .mulu .close{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 30px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        background: rgba(0,0,0,.6);
+        position: fixed;
+        right: 10px;
+        top: 30px;
+        cursor: pointer;
+        opacity: 0;
+        transition: all .1s ease-in-out;
+        
+        font-style: normal;
+    }
+    .mulu.show .close{
+        opacity: 1;
+        transition: all .4s .4s ease-in-out;
+    }
+    .mulu ul>li{
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        height: 25px;
+        margin: 5px 10px;
+        text-align: left;
     }
 </style>
 <body>
@@ -65,95 +121,10 @@
     </div>
     <ul class="opts">
         <li class="pre">上一页</li>
+        <li class="openmulu">目录</li>
         <li class="next">下一页</li>
-        <li class="skip"><input type="text" placeholder="跳转到"></li>
+        <li class="skip"><input type="text"></li>
     </ul>
 </body>
 <script src="./js/app.js"></script>
-<script>
-!function(){
-    return false
-    var xs = {
-        '斗罗大陆':'./data/data.json'
-    }
-    var skip = [...document.querySelectorAll('.skip input')]
-    var pre = [...document.querySelectorAll('.pre')]
-    var next = [...document.querySelectorAll('.next')]
-    // name: n page: p
-    var Search = getAppSearch()
-    if (!Search.n || !Search.p) {
-        setSearch({n:'斗罗大陆',p:0})
-    }
-    var xsKey = decodeURI(Search.n)
-    console.log(111);
-    fetch(xs[xsKey]).then((res)=>{
-        
-        res.json().then(data=>{
-            console.log(data);
-            var page = data[Search.p]
-            if(page){
-                render(page)
-            } else{
-                document.querySelector('body').innerHTML = '未有此章节';
-                setTimeout(()=>{
-                    window.history.back(-1)
-                },1000)
-            }
-        })
-        // var data = res
-       
-    })
-    
-    function render(data){
-        var t = document.getElementById('title')
-        var c = document.getElementById('content')
-        t.innerText = data.title
-        c.innerHTML = data.html.replace(new RegExp("&nbsp;&nbsp;&nbsp;&nbsp;","gi"),"&nbsp;&nbsp;")
-        skip.forEach(v=>{v.value = parseInt(Search.p) +1})
-    }
-
-    pre.forEach(v=>{
-        v.onclick = function(){
-            setSearch({p:parseInt(Search[p])-1})
-        }
-    })
-    next.forEach(v=>{
-        v.onclick = function(){
-            setSearch({p:parseInt(Search[p])+1})
-        }
-    })
-    skip.forEach(v=>{
-        v.onchange = function(){
-            var p = parseInt(this.value)-1
-            setSearch({p: p<0?0:p})
-        }
-    })
-    function getAppSearch(){
-        var r = {}
-        var s = location.search
-        if(!s || s.trim()=='?') return r;
-
-        s = s.substring(1).split('&')
-        s.forEach(v=>{
-            var kv = v.split('=')
-            if(kv.length == 2){
-                r[kv[0]] = kv[1]
-            }
-        })
-        return r
-    }
-
-    function setSearch(obj){
-        var s = getAppSearch()
-        for(var k in obj){
-            s[k] = obj[k]
-        }
-        var r = []
-        for (var k in s) {
-            r.push(`${k}=${s[k]}`)
-        }
-        location.href = `?${r.join('&')}`;
-    }
-    }()
-</script>
 </html>

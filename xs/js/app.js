@@ -6,6 +6,7 @@
     var skip = [...document.querySelectorAll('.skip input')]
     var pre = [...document.querySelectorAll('.pre')]
     var next = [...document.querySelectorAll('.next')]
+    var open = [...document.querySelectorAll('.openmulu')]
     // name: n page: p
     var Search = getAppSearch()
     if (!Search.n || !Search.p) {
@@ -26,6 +27,12 @@
                     window.history.back(-1)
                 },1000)
             }
+            open.forEach(v=>{
+                v.onclick = function(){
+                        mulu(1,data);
+                        v.isOpen = true
+                }
+            })
         })
         // var data = res
        
@@ -56,6 +63,7 @@
             setSearch({p: p<0?0:p})
         }
     })
+    
     function getAppSearch(){
         var r = {}
         var s = location.search
@@ -71,7 +79,7 @@
         return r
     }
 
-    function setSearch(obj){
+    function setSearch(obj,flag){
         var s = getAppSearch()
         for(var k in obj){
             s[k] = obj[k]
@@ -80,6 +88,38 @@
         for (var k in s) {
             r.push(`${k}=${s[k]}`)
         }
-        location.href = `?${r.join('&')}`;
+        var link = `?${r.join('&')}`;
+        if(flag) return link;
+        location.href = link;
     }
-    }()
+    function mulu(o,data){
+        var dom = document.querySelector('.mulu');
+        console.log(o)
+        if(!o){
+            dom.className = 'mulu';
+            console.log(000)
+            return false;
+        }
+        if (!dom) {
+            dom = document.createElement('DIV');
+            dom.className = 'mulu'
+            dom.innerHTML = createMulu(data);
+            document.querySelector('body').appendChild(dom);
+            dom.querySelector('.close').onclick = function(){
+                mulu(0);
+            }
+        }
+        setTimeout(()=>{
+            dom.className = 'mulu show'
+        },0)
+    }
+    function createMulu(data){
+        console.log(data.length);
+        var str = ['<i class="close">X</i><ul>'];
+        data.forEach((x,i)=>{
+            str.push('<li><a href="'+setSearch({p:i},true)+'">'+x.title+'</a></li>')
+        })
+        str.push('</ul>');
+        return str.join('');
+    }
+}()
