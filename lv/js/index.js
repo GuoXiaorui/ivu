@@ -262,7 +262,7 @@ $(function () {
 
  function runP1() {
     var i = 0;
-    var str = "一辈子挺长的，要是因为气话走散了，重新认识好吗,愿一切美好终能成为美好\n\r—The boy who couldn't lv u more, from then on";
+    var str = "终于，幸好，我们还是我们,愿一切美好终能成为美好\n\r—The boy who couldn't lv u more, from then on";
 
     function typing() {
         var mydiv = document.getElementById("display");
