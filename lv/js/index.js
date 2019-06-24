@@ -28,7 +28,7 @@ function setAni(obj,elm,f){
     }
 }
 var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg','bg1.jpg'],
-    souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg', 'p7.jpg'];
+    souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg', 'p7.jpg','p8.jpg'];
 preload(souces1, function () {
     // return false
     console.log($(".loadding").length)
@@ -58,11 +58,11 @@ function runP2(hdre) {
             slideChangeTransitionEnd: function (swp) {
                 if (sliderImag.activeIndex == 1 && jilu !== sliderImag.activeIndex) {
                      $(".loadding").removeClass('hide')
-                     preload(souces2, function () {
+                    //  preload(souces2, function () {
                          $(".loadding").addClass('hide')
                          picsShow = new HdPic(".pic-app", hdre)
                          picsShow.init();
-                     })
+                    //  })
                 } else if (sliderImag.activeIndex !== 1) {
                     console.log("滑动结束：",picsShow)
                     if (picsShow){
@@ -234,8 +234,8 @@ $(function () {
     mm.setAttribute("autoplay", true);
     mm.setAttribute("loop", true);
     mm.setAttribute("preload", true);
-    // mm.setAttribute("src", "media/bg.mp3");
-    mm.setAttribute("src", "media/faded.mp3");
+    mm.setAttribute("src", "media/bg.mp3");
+    // mm.setAttribute("src", "media/faded.mp3");
 
     var btn = document.getElementById("music")
     mm.addEventListener('canplaythrough',function(){
