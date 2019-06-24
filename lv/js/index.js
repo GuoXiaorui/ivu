@@ -244,9 +244,9 @@ $(function () {
         // btn.className = "run"
     },true)
     mm.play()
-    document.addEventListener("WeixinJSBridgeReady", function () { 
-        mm.play() 
-    }, false);
+    // document.addEventListener("WeixinJSBridgeReady", function () { 
+    //     mm.play() 
+    // }, false);
     btn.ontouchstart = function () {
         if (mmlock) return;
         console.log(mm.paused)
