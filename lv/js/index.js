@@ -231,9 +231,9 @@ $(function () {
     $(".heart3d").append(str)
     var mm = document.createElement("AUDIO");
     var mmlock = true
-    mm.setAttribute("autoplay", true);
+    // mm.setAttribute("autoplay", true);
     mm.setAttribute("loop", true);
-    mm.setAttribute("preload", true);
+    // mm.setAttribute("preload", true);
     mm.setAttribute("src", "media/bg.mp3");
     // mm.setAttribute("src", "media/faded.mp3");
 
