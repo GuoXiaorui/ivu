@@ -8,6 +8,29 @@ __debug = true
 var startTime = "Sat Oct 06 2018 14:30:00 GMT+0800 (中国标准时间)"
 window.sliderImag  = null
 resizeW(750);
+()=>{
+var xin = `<div class="img">
+<img width="50" height="50" src="img/1.jpg" />
+</div>
+<div class="img">
+<img width="50" height="50" src="img/2.jpg" />
+</div>
+<div class="img">
+<img width="50" height="50" src="img/3.jpg" />
+</div>
+<div class="img">
+<img width="50" height="50" src="img/4.jpg" />
+</div>
+<div class="img">
+<img width="50" height="50" src="img/2.jpg" />
+</div>
+<div class="img">
+<img width="50" height="50" src="img/3.jpg" />
+</div>`
+$('#heart3d .pre').html(xin)
+}
+
+
 function preload(images, complete) {
     var total = new Array();
     for (var i = 0; i < images.length; i++) {
