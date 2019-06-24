@@ -29,7 +29,7 @@ function setAni(obj,elm,f){
 }
 var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg','bg1.jpg'],
     souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg', 'p7.jpg','p8.jpg'];
-preload(souces1, function () {
+// preload(souces1, function () {
     // return false
     console.log($(".loadding").length)
     $(".loadding").html(`<figure>
@@ -45,7 +45,7 @@ preload(souces1, function () {
         runP2(souces2)
     }, 20);
     
-})
+// })
 
 function runP2(hdre) {
     var picsShow = null;
