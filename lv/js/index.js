@@ -29,6 +29,7 @@ function setAni(obj,elm,f){
 }
 var souces1 = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', 'bg.jpg', 'music.jpg','bg1.jpg'],
     souces2 = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg', 'p7.jpg','p8.jpg'];
+    preload(([]).concat(souces1,souces2))
 // preload(souces1, function () {
     // return false
     console.log($(".loadding").length)
@@ -240,7 +241,7 @@ $(function () {
     var btn = document.getElementById("music")
     mm.addEventListener('canplaythrough',function(){
         mmlock = false
-        btn.className = "run"
+        // btn.className = "run"
     },true)
     mm.play()
     document.addEventListener("WeixinJSBridgeReady", function () { 
