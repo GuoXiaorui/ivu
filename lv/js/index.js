@@ -27,7 +27,7 @@ var xin = `<div class="img">
 <div class="img">
 <img width="50" height="50" src="img/3.jpg" />
 </div>`
-$('#heart3d .pre').html(xin)
+$('#heart3d .per').html(xin)
 }
 
 
