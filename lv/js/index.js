@@ -8,7 +8,7 @@ __debug = true
 var startTime = "Sat Oct 06 2018 14:30:00 GMT+0800 (中国标准时间)"
 window.sliderImag  = null
 resizeW(750);
-()=>{
+{
 var xin = `<div class="img">
 <img width="50" height="50" src="img/1.jpg" />
 </div>
