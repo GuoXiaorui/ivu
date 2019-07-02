@@ -228,18 +228,19 @@ function HdPic(sel,resouce1){
             
             _lis.addClass("show").siblings().removeClass("show init");
             curIndex = _lis.index();
-            timeout[4] =setTimeout(() => {
-                var deg = Math.random()*60+10+"deg";
-                deg = Math.random()>0.5?deg:"-"+deg;
-                var l = Math.random() * ml + 0.8*pW
-                var t = Math.random()*mt + 0.8*pH
-                _lis.css({left:l,top:t,transform:"rotate("+deg+")"});_lis.removeClass("show").addClass("init");
-                 timeout[5] = setTimeout(() => {
-                     curIndex = _lis.index();
-                     lock = false;
-                     autoPlay()
-                 }, 900);
-            }, 2500);
+            lock = false;
+            // timeout[4] =setTimeout(() => {
+            //     var deg = Math.random()*60+10+"deg";
+            //     deg = Math.random()>0.5?deg:"-"+deg;
+            //     var l = Math.random() * ml + 0.8*pW
+            //     var t = Math.random()*mt + 0.8*pH
+            //     _lis.css({left:l,top:t,transform:"rotate("+deg+")"});_lis.removeClass("show").addClass("init");
+            //     //  timeout[5] = setTimeout(() => {
+            //          curIndex = _lis.index();
+            //          lock = false;
+            //         //  autoPlay()
+            //     //  }, 900);
+            // }, 2500);
         },10)
         })
     }
@@ -266,6 +267,8 @@ $(function () {
         mmlock = false
         // btn.className = "run"
     },true)
+    btn.className = "run"
+    btn.style.animationPlayState = "paused"
     mm.play()
     // document.addEventListener("WeixinJSBridgeReady", function () { 
     //     mm.play() 
