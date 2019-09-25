@@ -322,7 +322,8 @@ function tr(n) {
 }
 function jsst(startT) {
     var _date = new Date(startT)
-    var dur = (new Date().getTime() - _date.getTime()) / 1000;
+    var f1 = 'Wed Sep 25 2019 22:17:04 GMT+0800 (中国标准时间)'
+    var dur = (new Date(f1).getTime() - _date.getTime()) / 1000;
 
     var d = Math.floor(dur / (24 * 60 * 60));
     var h = Math.floor((dur % (24 * 60 * 60)) / (60 * 60));
